@@ -1,6 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM --platform=$BUILDPLATFORM node:14.4.0-alpine AS development
-
+FROM node:14.4.0-alpine 
 RUN mkdir /project
 WORKDIR /project
 
