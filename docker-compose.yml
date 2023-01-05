@@ -3,8 +3,10 @@ services:
     build:
       context: ./vuejs
       dockerfile: Dockerfile
-    ports:
-      - 8080:8080
+    container_name: frontend
+    image: frontend_image    
     volumes:
-      - ./vuejs:/project
-      - /project/node_modules
+      - ./vuejs/nginx:/etc/nginx/conf.d
+    ports:
+      - 80:80
+      
