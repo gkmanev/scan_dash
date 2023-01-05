@@ -1,4 +1,5 @@
-FROM node:14
+# Stage 1
+FROM node:14 as build
 
 # install simple http server for serving static content
 RUN npm install -g http-server
@@ -20,6 +21,9 @@ RUN npm run build
 
 EXPOSE 8080
 CMD [ "http-server", "dist" ]
+
+# Stage 2 - the production environment
+
 
 FROM nginx:1.13
 RUN  apt-get update \
